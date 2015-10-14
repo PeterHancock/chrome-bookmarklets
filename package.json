@@ -1,0 +1,25 @@
+{
+  "name": "chrome-bookmarklet",
+  "description": "Create a bookmarklet from a JS URL",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Peter Hancock <peter.hancock@gmail.com> (https://peterhancock.github.io)",
+  "repository": {
+    "url": "git://github.com/PeterHancock/chrome-bookmarklet.git"
+  },
+  "scripts": {
+    "clean": "rm -r dist && cp -R static dist",
+    "build:popup": "browserify src/popup.js -o dist/popup.js",
+    "build:content": "browserify src/content.js -o dist/content.js",
+    "build": "npm run clean && npm run build:popup && npm run build:content",
+    "test": "tape test/**/*.js"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "tape": "~4.2.0"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "uglify-js": "^2.5.0"
+  }
+}

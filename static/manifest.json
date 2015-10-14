@@ -1,0 +1,27 @@
+{
+  "name": "Create Bookmarklet",
+  "version": "0.1",
+  "description": "blah blh blsh",
+  "permissions": [
+    "bookmarks",
+    "tabs"
+  ],
+  "browser_action": {
+      "default_title": "My Bookmarks",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*.js",
+        "https://*/*.js",
+        "file://*/*.js"
+      ],
+      "js": ["content.js"],
+      "run_at":  "document_idle"
+    }
+  ],
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}
